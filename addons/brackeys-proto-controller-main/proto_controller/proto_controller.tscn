@@ -1,0 +1,52 @@
+[gd_scene load_steps=6 format=3 uid="uid://bs72ogkvdd7d6"]
+
+[ext_resource type="Script" uid="uid://1ru2ilu56bye" path="res://addons/brackeys-proto-controller-main/proto_controller/proto_controller.gd" id="1_ucva2"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iof21"]
+albedo_color = Color(0.91806, 0.575202, 0.222449, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_ucva2"]
+radius = 0.4
+height = 1.8
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_qqi21"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_iof21"]
+radius = 0.4
+height = 1.8
+
+[node name="ProtoController" type="CharacterBody3D"]
+script = ExtResource("1_ucva2")
+
+[node name="Mesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+material_override = SubResource("StandardMaterial3D_iof21")
+mesh = SubResource("CapsuleMesh_ucva2")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Mesh"]
+transform = Transform3D(0.349308, -0.218144, 0, 0.293104, 0.259974, 0, 0, 0, 0.09072, -0.3, 0.7, 7.45058e-09)
+mesh = SubResource("CapsuleMesh_qqi21")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Mesh"]
+transform = Transform3D(-0.351697, -0.219396, 0, 0.295109, -0.261466, 0, 0, 0, 0.09072, 0.355158, 0.7, 0)
+mesh = SubResource("CapsuleMesh_qqi21")
+skeleton = NodePath("../..")
+
+[node name="Collider" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+shape = SubResource("CapsuleShape3D_iof21")
+
+[node name="Head" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
+
+[node name="Camera3D" type="Camera3D" parent="Head"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 2.4)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.989252, 0, 0, 0, 0.989252, 0, 0, 0, 0.989252, 0, 1.74096, 0)
+light_energy = 2.719
+light_indirect_energy = 15.875
+light_volumetric_fog_energy = 16.0
+
+[node name="OmniLight3D" type="OmniLight3D" parent="DirectionalLight3D"]
+light_energy = 3.548

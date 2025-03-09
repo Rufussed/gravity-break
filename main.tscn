@@ -1,0 +1,69 @@
+[gd_scene load_steps=7 format=3 uid="uid://b2jon087xyea2"]
+
+[ext_resource type="PackedScene" uid="uid://bs72ogkvdd7d6" path="res://addons/brackeys-proto-controller-main/proto_controller/proto_controller.tscn" id="1_ig7tw"]
+[ext_resource type="Script" uid="uid://b5nwh1fies51r" path="res://world.gd" id="2_0xm2m"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_0xm2m"]
+sky_top_color = Color(0.780587, 0.121293, 0.471497, 1)
+sky_horizon_color = Color(0.628221, 0.455648, 0.534199, 1)
+ground_horizon_color = Color(0.628221, 0.455648, 0.534199, 1)
+
+[sub_resource type="Sky" id="Sky_h2yge"]
+sky_material = SubResource("ProceduralSkyMaterial_0xm2m")
+
+[sub_resource type="Environment" id="Environment_1bvp3"]
+background_mode = 2
+sky = SubResource("Sky_h2yge")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_7dm0k"]
+
+[node name="Main" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_1bvp3")
+
+[node name="Player" parent="." instance=ExtResource("1_ig7tw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4, 0.5, 8.5)
+can_sprint = true
+input_left = "a"
+input_right = "d"
+input_forward = "w"
+input_back = "s"
+input_jump = "space"
+input_sprint = "shift"
+input_freefly = ""
+
+[node name="World" type="Node3D" parent="."]
+script = ExtResource("2_0xm2m")
+
+[node name="Wall" type="CSGMesh3D" parent="World"]
+transform = Transform3D(22.5, 0, 0, 0, 10, 0, 0, 0, 1, 0, 0, 0)
+operation = 2
+use_collision = true
+mesh = SubResource("BoxMesh_7dm0k")
+
+[node name="Floor" type="CSGMesh3D" parent="World"]
+transform = Transform3D(50.625, 0, 0, 0, -3.49691e-06, -1, 0, 80, -4.37114e-08, 0, 0, 0)
+operation = 2
+use_collision = true
+mesh = SubResource("BoxMesh_7dm0k")
+
+[node name="ceiling" type="CSGMesh3D" parent="World"]
+transform = Transform3D(50.625, 0, 0, 0, -3.49691e-06, -1, 0, 80, -4.37114e-08, 0, 20.7, 0)
+operation = 2
+use_collision = true
+mesh = SubResource("BoxMesh_7dm0k")
+
+[node name="Floor2" type="CSGMesh3D" parent="World"]
+transform = Transform3D(-1.10644e-06, -3.49691e-06, -1, -25.3125, 1.52855e-13, 4.37114e-08, 0, 80, -4.37114e-08, -25.3, 10.1, 0)
+operation = 2
+use_collision = true
+mesh = SubResource("BoxMesh_7dm0k")
+
+[node name="Floor3" type="CSGMesh3D" parent="World"]
+transform = Transform3D(-1.10644e-06, -3.49691e-06, -1, -25.3125, 1.52855e-13, 4.37114e-08, 0, 80, -4.37114e-08, 25.7, 10.1, 0)
+operation = 2
+use_collision = true
+mesh = SubResource("BoxMesh_7dm0k")
