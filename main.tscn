@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://b5nwh1fies51r" path="res://world.gd" id="2_0xm2m"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_0xm2m"]
-sky_top_color = Color(0.780587, 0.121293, 0.471497, 1)
+sky_top_color = Color(0.278246, 0.335415, 1, 1)
 sky_horizon_color = Color(0.628221, 0.455648, 0.534199, 1)
 ground_horizon_color = Color(0.628221, 0.455648, 0.534199, 1)
 
