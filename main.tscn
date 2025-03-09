@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://b2jon087xyea2"]
+[gd_scene load_steps=8 format=3 uid="uid://b2jon087xyea2"]
 
 [ext_resource type="PackedScene" uid="uid://bs72ogkvdd7d6" path="res://addons/brackeys-proto-controller-main/proto_controller/proto_controller.tscn" id="1_ig7tw"]
 [ext_resource type="Script" uid="uid://b5nwh1fies51r" path="res://world.gd" id="2_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://bsku1jl2dyyeg" path="res://brackeys_3d_game_assets/brackeys_3d_game_assets/import_examples/chest_gold/chest_rigidbody.tscn" id="3_h2yge"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_0xm2m"]
 sky_top_color = Color(0, 0.523376, 0.447365, 1)
@@ -15,6 +16,7 @@ sky_material = SubResource("ProceduralSkyMaterial_0xm2m")
 background_mode = 2
 sky = SubResource("Sky_h2yge")
 tonemap_mode = 2
+ssao_enabled = true
 glow_enabled = true
 
 [sub_resource type="BoxMesh" id="BoxMesh_7dm0k"]
@@ -67,3 +69,6 @@ transform = Transform3D(-1.10644e-06, -3.49691e-06, -1, -25.3125, 1.52855e-13, 4
 operation = 2
 use_collision = true
 mesh = SubResource("BoxMesh_7dm0k")
+
+[node name="RigidBody3D" parent="World" instance=ExtResource("3_h2yge")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.1, 0.5, 8)

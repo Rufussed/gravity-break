@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://d33mbvyy4q51i"]
+
+[ext_resource type="PackedScene" uid="uid://bp5vqvn3hgv1x" path="res://brackeys_3d_game_assets/brackeys_3d_game_assets/import_examples/chest_gold/chest_gold.glb" id="1_n01v4"]
+
+[node name="Chest" type="Node3D"]
+
+[node name="chest_gold2" parent="." instance=ExtResource("1_n01v4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4, 0, -0.1)
+
+[node name="chest_gold_lid" parent="chest_gold2/chest_gold" index="0"]
+transform = Transform3D(1, 0, 0, 0, 0.173648, 0.984808, 0, -0.984808, 0.173648, 0, 1, -1.12977)
+
+[editable path="chest_gold2"]

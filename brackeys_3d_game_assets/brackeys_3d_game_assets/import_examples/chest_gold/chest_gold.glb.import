@@ -16,7 +16,7 @@ dest_files=["res://.godot/imported/chest_gold.glb-62da2b68dac318d49128b0494ff963
 nodes/root_type=""
 nodes/root_name=""
 nodes/apply_root_scale=true
-nodes/root_scale=1.0
+nodes/root_scale=2.0
 nodes/import_as_skeleton_bones=false
 nodes/use_node_type_suffixes=true
 meshes/ensure_tangents=true
@@ -32,6 +32,13 @@ animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
-_subresources={}
+_subresources={
+"materials": {
+"DungeonMat": {
+"use_external/enabled": true,
+"use_external/path": "uid://b8vwscormmlyl"
+}
+}
+}
 gltf/naming_version=1
 gltf/embedded_image_handling=1
